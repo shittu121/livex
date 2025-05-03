@@ -1,0 +1,86 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark gradient background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="spotlightGradient" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#d4af3777;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+  
+  <!-- Central spotlight -->
+  <circle cx="960" cy="540" r="600" fill="url(#spotlightGradient)" />
+  
+  <!-- Golden particles/stars scattered around -->
+  <g filter="url(#glow)">
+    <!-- Random stars across the background -->
+    <circle cx="300" cy="200" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="450" cy="350" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="600" cy="180" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="750" cy="400" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="900" cy="250" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="1050" cy="300" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="1200" cy="200" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="1350" cy="350" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="1500" cy="180" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="1650" cy="400" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="1800" cy="250" r="2.5" fill="#d4af37" opacity="0.8" />
+    
+    <circle cx="200" cy="500" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="350" cy="650" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="500" cy="580" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="650" cy="700" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="800" cy="550" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="950" cy="680" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="1100" cy="600" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="1250" cy="700" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="1400" cy="550" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="1550" cy="650" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="1700" cy="580" r="1.5" fill="#d4af37" opacity="0.5" />
+    
+    <circle cx="250" cy="800" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="400" cy="900" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="550" cy="850" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="700" cy="950" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="850" cy="880" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="1000" cy="930" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="1150" cy="870" r="2" fill="#d4af37" opacity="0.7" />
+    <circle cx="1300" cy="950" r="1.5" fill="#d4af37" opacity="0.5" />
+    <circle cx="1450" cy="900" r="2.5" fill="#d4af37" opacity="0.8" />
+    <circle cx="1600" cy="850" r="1" fill="#d4af37" opacity="0.6" />
+    <circle cx="1750" cy="920" r="2" fill="#d4af37" opacity="0.7" />
+  </g>
+  
+  <!-- Abstract lines representing sound waves or event dynamics -->
+  <g opacity="0.15">
+    <!-- Sound wave pattern -->
+    <path d="M0,540 Q480,440 960,540 Q1440,640 1920,540" stroke="#d4af37" stroke-width="2" fill="none" />
+    <path d="M0,560 Q480,680 960,560 Q1440,440 1920,560" stroke="#d4af37" stroke-width="1.5" fill="none" />
+    <path d="M0,520 Q480,370 960,520 Q1440,670 1920,520" stroke="#d4af37" stroke-width="1.8" fill="none" />
+    
+    <!-- Center accent lines -->
+    <path d="M960,100 L960,980" stroke="#d4af37" stroke-width="0.5" fill="none" opacity="0.3" />
+    <path d="M860,100 L860,980" stroke="#d4af37" stroke-width="0.3" fill="none" opacity="0.2" />
+    <path d="M1060,100 L1060,980" stroke="#d4af37" stroke-width="0.3" fill="none" opacity="0.2" />
+    
+    <!-- Horizontal accent lines -->
+    <path d="M100,540 L1820,540" stroke="#d4af37" stroke-width="0.5" fill="none" opacity="0.3" />
+    <path d="M100,440 L1820,440" stroke="#d4af37" stroke-width="0.3" fill="none" opacity="0.2" />
+    <path d="M100,640 L1820,640" stroke="#d4af37" stroke-width="0.3" fill="none" opacity="0.2" />
+  </g>
+  
+  <!-- Center spotlight effect -->
+  <circle cx="960" cy="540" r="300" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.2" />
+  <circle cx="960" cy="540" r="200" fill="none" stroke="#d4af37" stroke-width="0.8" opacity="0.15" />
+  <circle cx="960" cy="540" r="100" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.1" />
+</svg>
