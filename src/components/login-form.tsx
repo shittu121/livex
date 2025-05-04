@@ -35,6 +35,16 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
         password,
       })
       if (error) throw error
+
+      // Get the logged-in user
+      const { data: authData, error: userError } = await supabase.auth.getUser()
+      if (userError) throw userError
+  
+      const userId = authData?.user?.id
+      if (userId) {
+        await supabase.from('sessions').insert({ user_id: userId })
+      }
+
       // Update this route to redirect to an authenticated route. The user already has an active session.
       router.push('/protected')
     } catch (error: unknown) {

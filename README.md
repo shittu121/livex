@@ -9,7 +9,7 @@ To run this project locally:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/username/repo-name.git
+git clone https://github.com/shittu121/livex.git
 cd repo-name
 ```
 
@@ -52,10 +52,12 @@ bun dev
 
 ## 🛠 Tech Stack
 
-- **Next.js App Router**
+- **Next.js**
 - **TypeScript**
 - **Supabase**
 - **Tailwind CSS**
+- **Framer Motion**
+
 
 ---
 
