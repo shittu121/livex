@@ -1,5 +1,6 @@
 import Dashboard from '@/components/Admin'
 import HeaderSubComponent from '@/components/Admin/DashboardHeaderSub'
+import { SmSidebar } from '@/components/Admin/Sm-Sidebar'
 import Navbar from '@/components/Navbar'
 import { Input } from '@/components/ui/input'
 import { checkRole } from '@/lib/checkRole'
@@ -15,10 +16,13 @@ export default async function Admin() {
           <Zap className="h-6 w-6 text-indigo-400" />
           <h1 className="text-xl font-bold">LiveX</h1>
         </div>
+        <div className="flex lg:hidden md:hidden">
+          <SmSidebar />
+        </div>
         <Navbar />
         
-        <div className="flex items-center gap-7">
-          <div className="relative hidden md:block">
+        <div className="flex items-center gap-4 lg:gap-7">
+          <div className="relative hidden md:block sm-hidden">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <Input 
               className="pl-10 bg-slate-800 border-slate-700 text-slate-200 w-64"

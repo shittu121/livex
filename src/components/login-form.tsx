@@ -23,11 +23,6 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
-  const logSession = async (userId: string) => {
-    const supabase = createClient()
-    await supabase.from('sessions').insert({ user_id: userId })
-  }
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     const supabase = createClient()

@@ -46,7 +46,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import LoadingAnimation from '../loading-animation'
@@ -117,7 +116,6 @@ interface ActivityLog {
 }
 
 export default function AdminDashboard() {
-  const supabase = createClientComponentClient()
   const [loading, setLoading] = useState(true)
   const [influencerCount, setInfluencerCount] = useState(0)
   const [brandCount, setBrandCount] = useState(0)
@@ -149,6 +147,8 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
+
+      const supabase = createClientComponentClient()
   
       const today = new Date()
       const todayDate = today.toISOString().split('T')[0]
@@ -324,7 +324,7 @@ export default function AdminDashboard() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-2xl lg:text-3xl font-bold">Admin Dashboard</h1>
-              <p className="text-slate-400">Welcome back, here's what's happening today.</p>
+              <p className="text-slate-400">Welcome back, here&apos;s what&apos;s happening today.</p>
             </div>
             
             <div className="flex items-center gap-2">

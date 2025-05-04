@@ -13,7 +13,7 @@ export default async function Navbar() {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      <p>
+      <p className='sm-hidden md:hidden lg:flex'>
         Hello <span>{data.user.email}</span>
       </p>
       <LogoutButton />
