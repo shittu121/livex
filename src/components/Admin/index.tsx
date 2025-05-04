@@ -316,12 +316,12 @@ export default function AdminDashboard() {
 
         {/* Dashboard Content */}
         <motion.main 
-          className="flex-1 p-4 lg:p-6 overflow-y-auto"
+          className="flex-1 p-6 overflow-y-auto"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="block lg:flex md:flex space-y-4 items-center justify-between mb-6">
             <div>
               <h1 className="text-2xl lg:text-3xl font-bold">Admin Dashboard</h1>
               <p className="text-slate-400">Welcome back, here&apos;s what&apos;s happening today.</p>
@@ -476,7 +476,7 @@ export default function AdminDashboard() {
               <Card className="bg-slate-800 border-slate-700">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
-                    <CardTitle>User Signups Over Time</CardTitle>
+                    <CardTitle className='text-white'>User Signups Over Time</CardTitle>
                     <Tabs defaultValue="signups" className="w-auto">
                       <TabsList className="bg-slate-900">
                         <TabsTrigger value="signups">Signups</TabsTrigger>
@@ -532,7 +532,7 @@ export default function AdminDashboard() {
             <motion.div variants={itemVariants}>
               <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle>User Distribution</CardTitle>
+                  <CardTitle className='text-white'>User Distribution</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-64 flex items-center justify-center">
@@ -583,7 +583,7 @@ export default function AdminDashboard() {
               <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle>Recent Signups</CardTitle>
+                    <CardTitle className='text-white'>Recent Signups</CardTitle>
                     <Button variant="outline" size="sm" className="border-slate-600 text-slate-300">
                       View All
                     </Button>
@@ -656,7 +656,7 @@ export default function AdminDashboard() {
             <motion.div variants={itemVariants}>
               <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle>Recent Activity</CardTitle>
+                  <CardTitle className='text-white'>Recent Activity</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <motion.div 
@@ -691,7 +691,7 @@ export default function AdminDashboard() {
           <motion.div variants={itemVariants}>
             <Card className="bg-slate-800 border-slate-700">
               <CardHeader>
-                <CardTitle>User Growth Comparison</CardTitle>
+                <CardTitle className='text-white'>User Growth Comparison</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-72">
