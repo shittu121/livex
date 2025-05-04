@@ -12,7 +12,7 @@ export default async function Navbar() {
   }
 
   return (
-    <div className="flex items-center justify-center gap-2 p-5">
+    <div className="flex items-center justify-center gap-2">
       <p>
         Hello <span>{data.user.email}</span>
       </p>
