@@ -80,35 +80,35 @@ const FirstPage = () => {
             transition={{ duration: 0.6, delay: 1.2 }}
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md mx-auto"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="w-full sm:w-1/2 py-4 rounded-full font-medium text-black text-lg"
-              style={{ 
-                background: "linear-gradient(90deg, #d4af37 0%, #f2d272 50%, #d4af37 100%)",
-                boxShadow: "0 10px 15px -3px rgba(212, 175, 55, 0.2), 0 4px 6px -2px rgba(212, 175, 55, 0.1)"
-              }}
-            >
-              <Link href="/auth/sign-up">
+            <Link href="/auth/sign-up" className="w-full sm:w-1/2">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-full py-4 rounded-full font-medium text-black text-lg"
+                style={{ 
+                  background: "linear-gradient(90deg, #d4af37 0%, #f2d272 50%, #d4af37 100%)",
+                  boxShadow: "0 10px 15px -3px rgba(212, 175, 55, 0.2), 0 4px 6px -2px rgba(212, 175, 55, 0.1)"
+                }}
+              >
                 SIGN UP
-              </Link>
-            </motion.button>
+              </motion.button>
+            </Link>
             
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(212, 175, 55, 0.1)" }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="w-full sm:w-1/2 py-4 rounded-full font-medium text-lg"
-              style={{ 
-                border: "2px solid #d4af37",
-                color: "#d4af37"
-              }}
-            >
-              <Link href="/auth/login">
+            <Link href="/auth/login" className="w-full sm:w-1/2">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(212, 175, 55, 0.1)" }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-full py-4 rounded-full font-medium text-lg"
+                style={{ 
+                  border: "2px solid #d4af37",
+                  color: "#d4af37"
+                }}
+              >
                 SIGN IN
-              </Link>
-            </motion.button>
+              </motion.button>
+            </Link>
           </motion.div>
           
           {/* Scroll Indicator */}
