@@ -1,8 +1,7 @@
 "use client"
 import React from 'react'
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { motion } from 'framer-motion'
-import { Bell, ChevronDown } from 'lucide-react'
+import { Bell } from 'lucide-react'
 
 
 export default function HeaderSubComponent () {

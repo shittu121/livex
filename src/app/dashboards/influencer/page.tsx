@@ -1,4 +1,4 @@
-import Navbar from '@/components/UserProfile'
+import UserProfile from '@/components/UserProfile'
 import { checkRole } from '@/lib/checkRole'
 
 export default async function Influencer() {
@@ -6,7 +6,7 @@ export default async function Influencer() {
 
   return ( 
       <div>
-        <Navbar />
+        <UserProfile />
         <div className='p-5'>Influencer dashboard content</div>
       </div>
     )
