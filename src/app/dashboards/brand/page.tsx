@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/UserProfile'
 import { checkRole } from '@/lib/checkRole'
 
 export default async function Brand() {

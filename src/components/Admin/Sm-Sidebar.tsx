@@ -19,8 +19,12 @@ import { useEffect, useState } from "react"
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import { useTheme } from "next-themes"
+import { DialogContent, DialogTitle } from "@radix-ui/react-dialog"
+
 
 export function SmSidebar() {
+  const { theme } = useTheme()
   const [loading, setLoading] = useState(true)
   const [influencerCount, setInfluencerCount] = useState(0)
   const [brandCount, setBrandCount] = useState(0)
@@ -62,13 +66,19 @@ export function SmSidebar() {
     { name: 'Settings', icon: Settings, view: 'settings' },
   ]
 
+  const [hasMounted, setHasMounted] = useState(false)
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
   return (
     <Sheet>
       <SheetTrigger asChild>
-      <Image src="/hamburger.svg" alt="hamburger" width={50} height={50} />
+      <Image src={!hasMounted ? "/hamburger.svg" : theme === "dark" ? "/hamburger.svg" : "/hamburger2.svg"} alt="hamburger" width={50} height={50} />
       </SheetTrigger>
       <SheetContent>
-        <aside className="flex w-full border-slate-700 bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 h-screen">
+        <aside className="flex w-full dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 bg-gradient-to-br from-white to-slate-100 dark:text-white text-slate-600 p-6 h-screen">
           <nav className="space-y-2 mt-20 mx-auto w-full">
             {navItems.map((item) => (
               <motion.button
@@ -79,24 +89,24 @@ export function SmSidebar() {
                 className={`flex items-center gap-3 w-full p-3 rounded-lg transition-colors ${
                   activeView === item.view
                     ? 'bg-indigo-600 text-white'
-                    : 'hover:bg-slate-800 text-slate-300'
+                    : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-300'
                 }`}
               >
                 <item.icon className="h-5 w-5" />
                 <span>{item.name}</span>
 
                 {!loading && item.view === 'influencers' && (
-                  <Badge className="ml-auto bg-indigo-700">
+                  <Badge className="ml-auto bg-indigo-700 text-white">
                     {influencerCount}
                   </Badge>
                 )}
                 {!loading && item.view === 'brands' && (
-                  <Badge className="ml-auto bg-emerald-700">
+                  <Badge className="ml-auto bg-emerald-700 text-white">
                     {brandCount}
                   </Badge>
                 )}
                 {!loading && item.view === 'admins' && (
-                  <Badge className="ml-auto bg-yellow-700">
+                  <Badge className="ml-auto bg-yellow-700 text-white">
                     {adminCount}
                   </Badge>
                 )}
@@ -104,6 +114,9 @@ export function SmSidebar() {
             ))}
           </nav>
         </aside>
+        <DialogContent>
+          <DialogTitle></DialogTitle>
+        </DialogContent>
       </SheetContent>
     </Sheet>
   )
