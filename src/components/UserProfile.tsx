@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { LogoutButton } from '@/components/logout-button'
 import { createClient } from '@/lib/server'
 
-export default async function Navbar() {
+export default async function UserProfile() {
   const supabase = await createClient()
 
   const { data, error } = await supabase.auth.getUser()

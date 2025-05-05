@@ -251,12 +251,12 @@ export default function AdminDashboard() {
   
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div className="min-h-screen dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 bg-gradient-to-br from-white to-slate-100 dark:text-white text-slate-600">
       {loading ? <LoadingAnimation className={`${loading ? '' : 'hidden'}`} /> : ''}
       {/* Main Content */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="hidden md:flex flex-col w-64 border-r border-slate-700 p-4 h-screen">
+        <aside className="hidden md:flex flex-col w-64 border-r border-slate-200 dark:border-slate-700 p-4 h-screen">
           <nav className="space-y-1 mt-6">
             {[
               { name: 'Overview', icon: BarChart3, view: 'overview' },
@@ -274,23 +274,23 @@ export default function AdminDashboard() {
                 className={`flex items-center gap-3 w-full p-3 rounded-lg transition-colors ${
                   activeView === item.view 
                     ? 'bg-indigo-600 text-white' 
-                    : 'hover:bg-slate-800 text-slate-300'
+                    : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-300'
                 }`}
               >
                 <item.icon className="h-5 w-5" />
                 <span>{item.name}</span>
                 {item.view === 'influencers' && (
-                  <Badge className="ml-auto bg-indigo-700">
+                  <Badge className="ml-auto bg-indigo-700 text-white">
                     {influencerCount}
                   </Badge>
                 )}
                 {item.view === 'brands' && (
-                  <Badge className="ml-auto bg-emerald-700">
+                  <Badge className="ml-auto bg-emerald-700 text-white">
                     {brandCount}
                   </Badge>
                 )}
                 {item.view === 'admins' && (
-                  <Badge className="ml-auto hidden bg-emerald-700">
+                  <Badge className="ml-auto hidden bg-emerald-700 text-white">
                     {adminCount}
                   </Badge>
                 )}
@@ -298,7 +298,7 @@ export default function AdminDashboard() {
             ))}
           </nav>
 
-          <div className="mt-auto">
+          <div className="mt-auto fixed bottom-0 w-52">
             <Card className="bg-indigo-900 border-indigo-800">
               <CardContent className="p-4">
                 <h3 className="font-medium">Need help?</h3>
@@ -332,7 +332,7 @@ export default function AdminDashboard() {
                 value={timeFilter}
                 onValueChange={setTimeFilter}
               >
-                <SelectTrigger className="w-32 bg-slate-800 border-slate-700">
+                <SelectTrigger className="w-32 dark:bg-slate-800 bg-gradient-to-br border-slate-200 dark:border-slate-700">
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
                 <SelectContent>
@@ -357,7 +357,7 @@ export default function AdminDashboard() {
                     <div>
                       <p className="text-indigo-100 font-medium">Influencers</p>
                       <motion.p 
-                        className="text-3xl font-bold mt-1"
+                        className="text-3xl font-bold mt-1 text-white"
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ 
@@ -386,7 +386,7 @@ export default function AdminDashboard() {
                     <div>
                       <p className="text-emerald-100 font-medium">Brands</p>
                       <motion.p 
-                        className="text-3xl font-bold mt-1"
+                        className="text-3xl font-bold mt-1 text-white"
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ 
@@ -415,7 +415,7 @@ export default function AdminDashboard() {
                     <div>
                       <p className="text-amber-100 font-medium">Sessions</p>
                       <motion.p 
-                        className="text-3xl font-bold mt-1"
+                        className="text-3xl font-bold mt-1 text-white"
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ 
@@ -444,7 +444,7 @@ export default function AdminDashboard() {
                     <div>
                       <p className="text-rose-100 font-medium shrink-0">New Signups</p>
                       <motion.p 
-                        className="text-3xl font-bold mt-1"
+                        className="text-3xl font-bold mt-1 text-white"
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ 
@@ -477,8 +477,8 @@ export default function AdminDashboard() {
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className='text-white'>User Signups Over Time</CardTitle>
-                    <Tabs defaultValue="signups" className="w-auto">
-                      <TabsList className="bg-slate-900">
+                    <Tabs defaultValue="signups" className="w-auto bg-slate-800">
+                      <TabsList className="bg-indigo-600 hover:bg-indigo-700">
                         <TabsTrigger value="signups">Signups</TabsTrigger>
                         <TabsTrigger value="activity">Activity</TabsTrigger>
                       </TabsList>
@@ -530,7 +530,7 @@ export default function AdminDashboard() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <Card className="bg-slate-800 border-slate-700">
+              <Card className="bg-slate-800 border-slate-700 text-white">
                 <CardHeader>
                   <CardTitle className='text-white'>User Distribution</CardTitle>
                 </CardHeader>
@@ -584,14 +584,14 @@ export default function AdminDashboard() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className='text-white'>Recent Signups</CardTitle>
-                    <Button variant="outline" size="sm" className="border-slate-600 text-slate-300">
+                    <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700">
                       View All
                     </Button>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <motion.div 
-                    className="rounded-md max-h-96 overflow-auto"
+                    className="rounded-md max-h-96 overflow-auto custom-scrollbar"
                     variants={tableVariants}
                   >
                     <table className="min-w-full text-sm">
@@ -633,7 +633,7 @@ export default function AdminDashboard() {
                               </td>
                               <td className="px-4 py-3 text-slate-400">{format(new Date(user.created_at), 'PP')}</td>
                               <td className="px-4 py-3 text-right">
-                                <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white">
+                                <Button variant="ghost" size="sm" className="text-slate-400 hover:bg-indigo-700 hover:text-white">
                                   View
                                 </Button>
                               </td>
