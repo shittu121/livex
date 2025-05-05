@@ -125,6 +125,9 @@
   .sm-hidden{
     display: none;
   }
+  .custom-scrollbar::-webkit-scrollbar{
+    display: none;
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {
