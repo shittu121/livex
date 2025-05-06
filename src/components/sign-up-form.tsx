@@ -16,6 +16,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+
 export function SignUpForm({
   className,
   ...props
@@ -119,22 +128,18 @@ export function SignUpForm({
               <div className="grid gap-2">
                 <Label htmlFor="role">Select Role</Label>
                 <div className="relative inline-block w-full">
-                <select
-                  id="role"
-                  className={cn(
-                    "file:text-foreground placeholder:text-muted-foreground appearance-none selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-                    "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-                    "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-                  )}
-                  value={role}
-                  onChange={(e) =>
-                    setRole(e.target.value as 'admin' | 'influencer' | 'brand')
-                  }
-                >
-                  <option value="influencer">Influencer</option>
-                  <option value="brand">Brand</option>
-                  <option value="admin">Admin</option>
-                </select>
+                <Select value={role} onValueChange={(value) => setRole(value as 'admin' | 'influencer' | 'brand')}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="influencer">Influencer</SelectItem>
+                      <SelectItem value="brand">Brand</SelectItem>
+                      <SelectItem value="admin">Admin</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
                     className="w-4 h-4"
