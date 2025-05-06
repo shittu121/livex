@@ -49,6 +49,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import LoadingAnimation from '../loading-animation'
+import { useTheme } from 'next-themes'
+
 
 // Animation variants
 const containerVariants = {
@@ -127,6 +129,18 @@ export default function AdminDashboard() {
   const [activityData, setActivityData] = useState<{ name: string; influencers: number; brands: number }[]>([])
   const [activeView, setActiveView] = useState('overview')
   const [timeFilter, setTimeFilter] = useState('7d')
+
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === 'dark'
+  
+  // Colors based on theme
+  const gridColor = isDark ? '#333' : '#e5e7eb'           // dark: gray-800, light: gray-200
+  const axisColor = isDark ? '#e5e7eb' : '#4b5563'         // dark: gray-200, light: gray-600
+  const tooltipBg = isDark ? '#1e293b' : '#ffffff'         // dark: slate-800, light: white
+  const tooltipText = isDark ? '#f1f5f9' : '#1e293b'        // dark: slate-100, light: slate-800
+  const tooltipBorder = isDark ? '' : '#e2e8f0'      // dark: slate-700, light: gray-200
+  const labelColor = isDark ? 'text-slate-300' : 'text-slate-700'
+
 
 
   const userTypeData = [
@@ -256,7 +270,7 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="hidden md:flex flex-col w-64 border-r border-slate-200 dark:border-slate-700 p-4 h-screen">
+        <aside className="hidden md:flex flex-col w-64 border-r border-slate-200 dark:border-slate-700 p-4">
           <nav className="space-y-1 mt-6">
             {[
               { name: 'Overview', icon: BarChart3, view: 'overview' },
@@ -298,9 +312,9 @@ export default function AdminDashboard() {
             ))}
           </nav>
 
-          <div className="mt-auto fixed bottom-0 w-52">
-            <Card className="bg-indigo-900 border-indigo-800">
-              <CardContent className="p-4">
+          <div className="mt-auto">
+            <Card className="bg-indigo-900 border-indigo-800 fixed bottom-0">
+              <CardContent className=" text-center">
                 <h3 className="font-medium">Need help?</h3>
                 <p className="text-xs text-indigo-300 mt-1">Check our documentation</p>
                 <Button 
@@ -473,12 +487,12 @@ export default function AdminDashboard() {
               className="lg:col-span-2"
               variants={itemVariants}
             >
-              <Card className="bg-slate-800 border-slate-700">
+              <Card className="to-slate-100 dark:bg-slate-800 dark:border-slate-700 text-slate-600">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
-                    <CardTitle className='text-white'>User Signups Over Time</CardTitle>
-                    <Tabs defaultValue="signups" className="w-auto bg-slate-800">
-                      <TabsList className="bg-indigo-600 hover:bg-indigo-700">
+                    <CardTitle className='dark:text-white'>User Signups Over Time</CardTitle>
+                    <Tabs defaultValue="signups" className="w-auto dark">
+                      <TabsList className="bg-indigo-600 hover:bg-indigo-700 text-white border-none">
                         <TabsTrigger value="signups">Signups</TabsTrigger>
                         <TabsTrigger value="activity">Activity</TabsTrigger>
                       </TabsList>
@@ -497,15 +511,15 @@ export default function AdminDashboard() {
                           bottom: 5,
                         }}
                       >
-                        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                        <XAxis dataKey="name" stroke="#888" />
-                        <YAxis stroke="#888" />
+                        <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+                        <XAxis dataKey="name" stroke={axisColor} />
+                        <YAxis stroke={axisColor} />
                         <Tooltip 
                           contentStyle={{ 
-                            backgroundColor: '#1e293b', 
-                            border: 'none',
+                            backgroundColor: tooltipBg, 
+                            border: `1px solid ${tooltipBorder}`,
                             borderRadius: '8px',
-                            color: '#f1f5f9' 
+                            color: tooltipText 
                           }} 
                         />
                         <defs>
@@ -530,9 +544,9 @@ export default function AdminDashboard() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <Card className="bg-slate-800 border-slate-700 text-white">
+              <Card className="to-slate-100 dark:bg-slate-800 dark:border-slate-700 text-slate-600 dark:text-white">
                 <CardHeader>
-                  <CardTitle className='text-white'>User Distribution</CardTitle>
+                  <CardTitle className='dark:text-white'>User Distribution</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-64 flex items-center justify-center">
@@ -553,10 +567,10 @@ export default function AdminDashboard() {
                         </Pie>
                         <Tooltip 
                           contentStyle={{ 
-                            backgroundColor: '#1e293b', 
-                            border: 'none',
+                            backgroundColor: tooltipBg, 
+                            border: `1px solid ${tooltipBorder}`,
                             borderRadius: '8px',
-                            color: '#f1f5f9' 
+                            color: tooltipText 
                           }} 
                         />
                       </PieChart>
@@ -566,7 +580,7 @@ export default function AdminDashboard() {
                     {userTypeData.map((entry, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color }} />
-                        <span className="text-sm text-slate-300">{entry.name}</span>
+                        <span className={`text-sm ${labelColor}`}>{entry.name}</span>
                       </div>
                     ))}
                   </div>
@@ -580,10 +594,10 @@ export default function AdminDashboard() {
               className="lg:col-span-2"
               variants={itemVariants}
             >
-              <Card className="bg-slate-800 border-slate-700">
+              <Card className="to-slate-100 dark:bg-slate-800 dark:border-slate-700">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className='text-white'>Recent Signups</CardTitle>
+                    <CardTitle className='dark:text-white'>Recent Signups</CardTitle>
                     <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700">
                       View All
                     </Button>
@@ -595,7 +609,7 @@ export default function AdminDashboard() {
                     variants={tableVariants}
                   >
                     <table className="min-w-full text-sm">
-                      <thead className="bg-slate-900 text-slate-400">
+                      <thead className="bg-gray-100 dark:bg-slate-900 text-gray-600 dark:text-slate-400">
                         <tr>
                           {/* <th className="px-4 py-3 text-left">Full Name</th> */}
                           <th className="px-4 py-3 text-left">Email</th>
@@ -609,19 +623,10 @@ export default function AdminDashboard() {
                           recentSignups.map((user) => (
                             <motion.tr 
                               key={user.id} 
-                              className="border-b border-slate-700"
+                              className="border-b border-gray-200 dark:border-slate-700"
                               variants={rowVariants}
                             >
-                              {/* <td className="px-4 py-3 flex items-center gap-2">
-                                <Avatar className="h-6 w-6">
-                                  <AvatarImage src={user.avatar_url || "/api/placeholder/24/24"} />
-                                  <AvatarFallback className="text-xs">
-                                    {user.full_name?.charAt(0) || '?'}
-                                  </AvatarFallback>
-                                </Avatar>
-                                {user.full_name ?? '—'}
-                              </td> */}
-                              <td className="px-4 py-3 text-slate-300">{user.email ?? '—'}</td>
+                              <td className="px-4 py-3 text-gray-800 dark:text-slate-300">{user.email ?? '—'}</td>
                               <td className="px-4 py-3">
                                 <Badge className={`${
                                   user.role === 'influencer' ? 'bg-indigo-600 hover:bg-indigo-700' :
@@ -631,9 +636,9 @@ export default function AdminDashboard() {
                                   {user.role}
                                 </Badge>
                               </td>
-                              <td className="px-4 py-3 text-slate-400">{format(new Date(user.created_at), 'PP')}</td>
+                              <td className="px-4 py-3 text-gray-500 dark:text-slate-400">{format(new Date(user.created_at), 'PP')}</td>
                               <td className="px-4 py-3 text-right">
-                                <Button variant="ghost" size="sm" className="text-slate-400 hover:bg-indigo-700 hover:text-white">
+                                <Button variant="ghost" size="sm" className="text-gray-600 dark:text-slate-400 hover:bg-indigo-100 hover:text-indigo-800 dark:hover:bg-indigo-700 dark:hover:text-white">
                                   View
                                 </Button>
                               </td>
@@ -641,7 +646,7 @@ export default function AdminDashboard() {
                           ))
                         ) : (
                           <tr>
-                            <td colSpan={5} className="text-center py-4 text-slate-500">
+                            <td colSpan={5} className="text-center py-4 text-gray-500 dark:text-slate-500">
                               No recent signups.
                             </td>
                           </tr>
@@ -654,9 +659,9 @@ export default function AdminDashboard() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <Card className="bg-slate-800 border-slate-700">
+              <Card className="to-slate-100 dark:bg-slate-800 border-gray-200 dark:border-slate-700">
                 <CardHeader>
-                  <CardTitle className='text-white'>Recent Activity</CardTitle>
+                  <CardTitle className='dark:text-white'>Recent Activity</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <motion.div 
@@ -667,7 +672,7 @@ export default function AdminDashboard() {
                       <motion.div 
                         key={activity.id}
                         variants={rowVariants}
-                        className="flex items-start gap-3 pb-3 border-b border-slate-700"
+                        className="flex items-start gap-3 pb-3 border-b border-gray-200 dark:border-slate-700"
                       >
                         <Avatar className="h-8 w-8">
                           <AvatarImage src={activity.avatar} />
@@ -676,9 +681,9 @@ export default function AdminDashboard() {
                         <div>
                           <p className="text-sm">
                             <span className="font-medium">{activity.user}</span>{' '}
-                            <span className="text-slate-400">{activity.action}</span>
+                            <span className="text-gray-600 dark:text-slate-400">{activity.action}</span>
                           </p>
-                          <p className="text-xs text-slate-500 mt-1">{activity.time}</p>
+                          <p className="text-xs text-gray-500 dark:text-slate-500 mt-1">{activity.time}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -689,9 +694,9 @@ export default function AdminDashboard() {
           </div>
 
           <motion.div variants={itemVariants}>
-            <Card className="bg-slate-800 border-slate-700">
+            <Card className="to-slate-100 dark:bg-slate-800 border-gray-200 dark:border-slate-700">
               <CardHeader>
-                <CardTitle className='text-white'>User Growth Comparison</CardTitle>
+                <CardTitle className='dark:text-white'>User Growth Comparison</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="h-72">
@@ -705,15 +710,15 @@ export default function AdminDashboard() {
                         bottom: 5,
                       }}
                     >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                      <XAxis dataKey="name" stroke="#888" />
-                      <YAxis stroke="#888" />
+                      <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+                      <XAxis dataKey="name" stroke={axisColor} />
+                      <YAxis stroke={axisColor} />
                       <Tooltip 
                         contentStyle={{ 
-                          backgroundColor: '#1e293b', 
-                          border: 'none',
+                          backgroundColor: tooltipBg, 
+                          border: `1px solid ${tooltipBorder}`,
                           borderRadius: '8px',
-                          color: '#f1f5f9' 
+                          color: tooltipText 
                         }} 
                       />
                       <Bar dataKey="influencers" fill="#4F46E5" name="Influencers" />
