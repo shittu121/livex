@@ -313,7 +313,7 @@ export default function AdminDashboard() {
           </nav>
 
           <div className="mt-auto">
-            <Card className="bg-indigo-900 border-indigo-800 fixed bottom-0">
+            <Card className="bg-indigo-900 border-indigo-800 fixed bottom-4 left-8">
               <CardContent className=" text-center">
                 <h3 className="font-medium">Need help?</h3>
                 <p className="text-xs text-indigo-300 mt-1">Check our documentation</p>
