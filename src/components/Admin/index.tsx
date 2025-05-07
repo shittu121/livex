@@ -294,12 +294,12 @@ export default function AdminDashboard() {
                 <item.icon className="h-5 w-5" />
                 <span>{item.name}</span>
                 {item.view === 'influencers' && (
-                  <Badge className="ml-auto bg-indigo-700 text-white">
+                  <Badge className="ml-auto bg-indigo-700 text-white hidden">
                     {influencerCount}
                   </Badge>
                 )}
                 {item.view === 'brands' && (
-                  <Badge className="ml-auto bg-emerald-700 text-white">
+                  <Badge className="ml-auto bg-emerald-700 text-white hidden">
                     {brandCount}
                   </Badge>
                 )}
@@ -315,10 +315,10 @@ export default function AdminDashboard() {
           <div className="mt-auto">
             <Card className="bg-indigo-900 border-indigo-800 fixed bottom-4 left-8">
               <CardContent className=" text-center">
-                <h3 className="font-medium">Need help?</h3>
+                <h3 className="font-medium text-white">Need help?</h3>
                 <p className="text-xs text-indigo-300 mt-1">Check our documentation</p>
                 <Button 
-                  className="mt-3 w-full bg-indigo-700 hover:bg-indigo-800" 
+                  className="mt-3 w-full bg-indigo-700 hover:bg-indigo-800 text-white" 
                   size="sm"
                 >
                   View Docs
@@ -349,13 +349,13 @@ export default function AdminDashboard() {
                 <SelectTrigger className="w-32 dark:bg-slate-800 bg-gradient-to-br border-slate-200 dark:border-slate-700">
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className='dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 dark:border-slate-700'>
                   <SelectItem value="7d">Last 7 days</SelectItem>
                   <SelectItem value="30d">Last 30 days</SelectItem>
                   <SelectItem value="90d">Last 90 days</SelectItem>
                 </SelectContent>
               </Select>
-              <Button className="bg-indigo-600 hover:bg-indigo-700">Export</Button>
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">Export</Button>
             </div>
           </div>
 
@@ -598,7 +598,7 @@ export default function AdminDashboard() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className='dark:text-white'>Recent Signups</CardTitle>
-                    <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700">
+                    <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
                       View All
                     </Button>
                   </div>

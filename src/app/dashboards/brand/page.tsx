@@ -76,7 +76,6 @@ export default async function Brand() {
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              <DropdownMenuSeparator />
               <DropdownMenuItem>
               <LogoutButton />
                 <DropdownMenuShortcut className='sm-hidden'>⇧⌘Q</DropdownMenuShortcut>
