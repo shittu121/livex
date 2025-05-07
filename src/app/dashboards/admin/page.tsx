@@ -77,7 +77,6 @@ export default async function Admin() {
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              <DropdownMenuSeparator />
               <DropdownMenuItem>
               <LogoutButton />
                 <DropdownMenuShortcut className='sm-hidden'>⇧⌘Q</DropdownMenuShortcut>

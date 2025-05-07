@@ -142,10 +142,10 @@ export default function BrandDashboard() {
           <div className="mt-auto">
             <Card className="bg-indigo-900 border-indigo-800 fixed bottom-4 left-8">
               <CardContent className=" text-center">
-                <h3 className="font-medium">Need help?</h3>
+                <h3 className="font-medium text-white">Need help?</h3>
                 <p className="text-xs text-indigo-300 mt-1">Check our documentation</p>
                 <Button 
-                  className="mt-3 w-full bg-indigo-700 hover:bg-indigo-800" 
+                  className="mt-3 w-full bg-indigo-700 hover:bg-indigo-800 text-white" 
                   size="sm"
                 >
                   View Docs
@@ -176,13 +176,13 @@ export default function BrandDashboard() {
                 <SelectTrigger className="w-32 dark:bg-slate-800 bg-gradient-to-br border-slate-200 dark:border-slate-700">
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className='dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 dark:border-slate-700'>
                   <SelectItem value="7d">Last 7 days</SelectItem>
                   <SelectItem value="30d">Last 30 days</SelectItem>
                   <SelectItem value="90d">Last 90 days</SelectItem>
                 </SelectContent>
               </Select>
-              <Button className="bg-indigo-600 hover:bg-indigo-700">Export</Button>
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">Export</Button>
             </div>
           </div>
 
@@ -425,7 +425,7 @@ export default function BrandDashboard() {
                     <h3 className="font-medium text-lg">Join Our Discord</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">Connect with other creators</p>
                   </div>
-                  <Button className="bg-indigo-600 hover:bg-indigo-700">OPEN DISCORD</Button>
+                  <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">OPEN DISCORD</Button>
                 </CardContent>
               </Card>
               <Card className="dark:bg-slate-800 dark:border-slate-700">
@@ -434,7 +434,7 @@ export default function BrandDashboard() {
                     <h3 className="font-medium text-lg">RIVX Academy</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">Enhance your creator skills</p>
                   </div>
-                  <Button className="bg-amber-600 hover:bg-amber-700">LEARN MORE</Button>
+                  <Button className="bg-amber-600 hover:bg-amber-700 text-white">LEARN MORE</Button>
                 </CardContent>
               </Card>
             </div>
