@@ -96,17 +96,17 @@ export function SmSidebar() {
                 <span>{item.name}</span>
 
                 {!loading && item.view === 'influencers' && (
-                  <Badge className="ml-auto bg-indigo-700 text-white">
+                  <Badge className="ml-auto bg-indigo-700 text-white hidden">
                     {influencerCount}
                   </Badge>
                 )}
                 {!loading && item.view === 'brands' && (
-                  <Badge className="ml-auto bg-emerald-700 text-white">
+                  <Badge className="ml-auto bg-emerald-700 text-white hidden">
                     {brandCount}
                   </Badge>
                 )}
                 {!loading && item.view === 'admins' && (
-                  <Badge className="ml-auto bg-yellow-700 text-white">
+                  <Badge className="ml-auto bg-yellow-700 text-white hidden">
                     {adminCount}
                   </Badge>
                 )}

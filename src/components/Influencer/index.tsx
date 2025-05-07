@@ -425,7 +425,7 @@ export default function InfluencerDashboard() {
                     <h3 className="font-medium text-lg">Join Our Discord</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">Connect with other creators</p>
                   </div>
-                  <Button className="bg-indigo-600 hover:bg-indigo-700">OPEN DISCORD</Button>
+                  <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">OPEN DISCORD</Button>
                 </CardContent>
               </Card>
               <Card className="dark:bg-slate-800 dark:border-slate-700">
@@ -434,7 +434,7 @@ export default function InfluencerDashboard() {
                     <h3 className="font-medium text-lg">RIVX Academy</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">Enhance your creator skills</p>
                   </div>
-                  <Button className="bg-amber-600 hover:bg-amber-700">LEARN MORE</Button>
+                  <Button className="bg-amber-600 hover:bg-amber-700 text-white">LEARN MORE</Button>
                 </CardContent>
               </Card>
             </div>
