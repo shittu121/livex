@@ -164,14 +164,6 @@ export default function InfluencerOnboardingForm() {
         .from('influencer_profiles')
         .update({ has_onboarded: true, rivx_score: randomScore.toFixed(2), tier_name: tierName })
         .eq('user_id', userId))
-    } else {
-      ({ error: onboardError } = await supabase
-        .from('influencer_profiles')
-        .insert({
-          user_id: userId,
-          has_onboarded: true,
-          rivx_score: randomScore.toFixed(2), tier_name: tierName
-        }))
     }
   
     if (onboardError) {
