@@ -4,8 +4,13 @@ import React, { useEffect, useState } from "react"
 import { createClient } from "@/lib/client"
 import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar"
 
-export default function ProfileImage() {
+interface ProfileImageProps {
+  imageClassName?: string
+}
+
+export default function ProfileImage({ imageClassName }: ProfileImageProps) {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
+  
 
   const supabase = createClient()
 
@@ -43,9 +48,9 @@ export default function ProfileImage() {
 
   return (
     <Avatar className='cursor-pointer w-10 h-10'>
-      <AvatarImage src={src} className="w-10 h-10 rounded-full" />
+      <AvatarImage src={src} className={`w-10 h-10 rounded-full ${imageClassName}`} />
       <AvatarFallback className='rounded-full relative bg-gray-200 dark:bg-gray-700 flex items-center justify-center w-10 h-10'>
-        <span className="absolute w-10 h-10 left-4 top-2 text-gray-400 dark:text-gray-500 sm-hidden">I</span>
+        <span className="absolute w-10 h-10 left-4 top-2 text-gray-400 dark:text-gray-500 sm-hidden"></span>
       </AvatarFallback>
     </Avatar>
   )

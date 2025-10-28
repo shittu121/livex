@@ -15,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { createClient } from '@/lib/client'
 import Image from 'next/image'
 import Link from 'next/link'
+import ProfileImage from '@/components/ProfileImage'
 
 const IdentitySchema = z.object({
   avatar_url: z.string().optional(),
@@ -323,14 +324,15 @@ export function IdentitySection({
                       exit={{ scale: 0.8, opacity: 0 }}
                       transition={{ type: "spring", duration: 0.3 }}
                     >
-                      <Image
+                      {/* <Image
                         src={filePreview}
                         alt="Profile preview"
                         className="w-full h-full object-cover"
                         width={96}
                         height={96}
                         unoptimized={hasNewFile} // Use unoptimized for local file previews
-                      />
+                      /> */}
+                      <ProfileImage imageClassName="w-24 h-24 m-auto object-cover" />
                     </motion.div>
                   ) : (
                     <motion.div
