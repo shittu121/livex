@@ -3,7 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ['upload.wikimedia.org', 'flagcdn.com', 'juvxffeuxkffkphelibs.supabase.co', 'zdixvddyaxevaczxetor.supabase.co', 'drzmmzsmxnxbvuwcngev.supabase.co'],
+    remotePatterns: [
+      { protocol: "https", hostname: "upload.wikimedia.org" },
+      { protocol: "https", hostname: "flagcdn.com" },
+      { protocol: "https", hostname: "juvxffeuxkffkphelibs.supabase.co" },
+      { protocol: "https", hostname: "zdixvddyaxevaczxetor.supabase.co" },
+      { protocol: "https", hostname: "drzmmzsmxnxbvuwcngev.supabase.co" },
+    ],
   },
 };
 
